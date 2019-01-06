@@ -1,0 +1,83 @@
+
+<div class="row">
+
+	<div class="col-md-4">
+		<%= image_tag @university.uni_image.url, class: "university-show"%>
+	</div>
+
+
+ <div class="col-md-8">
+
+     <div class="university-info">
+
+		<h1 class="university-name"><%= @university.name %></h1>
+		<h3 class="university-location"><span> location</span><%= @university.location %></h3>
+		<h2 class="avg-rating">Average Rating</h2>
+		<div class="average-review-rating" data-score="<%= @average_review%>"></div>
+		<span class="number-of-reviews"> based on <%= @university.reviews.count%> Reviews </span>
+		<p class="university-desc"><%= @university.description %></p>
+
+	</div>
+ </div>
+
+</div>
+
+<div class="row">
+
+	<div class="col-md-4">
+
+		<!-- where the review and rating willgo -->
+		<div class="reviews">
+				<h1>Reviews</h1>
+
+				<%= render @university.reviews %>
+
+				<div>
+
+					<%= link_to "Add Review", new_university_review_path(@university), class: "btn-custom" %>
+				</div>
+
+		</div>
+
+
+	</div>
+
+
+</div>
+
+<div class="links btn-group">
+	<%= link_to "Back", root_path, class: "btn btn-custom" %>
+
+<% if user_signed_in? %>
+
+	<% if @university.user_id == current_user.id %>
+		
+		<%= link_to "Edit" , edit_university_path(@university) %>
+		<%= link_to "delete" , university_path(@university), method: :delete, data: {confirm: "are you sure?"} %>
+
+	<% end %>
+
+<% end %>
+
+
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

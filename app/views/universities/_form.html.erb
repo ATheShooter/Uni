@@ -1,0 +1,9 @@
+<%= simple_form_for @university, :html => {:multipart => true } do |f| %>
+<%= select_tag(:category_id,options_for_select(@categories), :prompt => "Select a category ") %>
+<%= f.file_field :uni_image %>
+<%= f.input :name, label: "university Name"%>
+<%= f.input :description %>
+<%= f.input :location %>
+<%= f.button :submit %>
+
+<% end %>
