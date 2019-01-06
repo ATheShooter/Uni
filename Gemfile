@@ -11,7 +11,6 @@ gem "paperclip", "~> 6.0.0"
 
 
 gem 'rails', '~> 5.2.2'
-gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'sassc-rails', '>= 2.0.0'
