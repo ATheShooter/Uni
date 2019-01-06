@@ -1,0 +1,18 @@
+<h1 class="current-category"><%= params[:category] %></h1>
+
+	<% if @universities.count == 0 %>
+	 	 <h1>the are no university are afilable in this category </h1>
+	<% else %>
+
+	<div class="row">
+
+		<% @universities.each do |uni| %>
+		<div class="col-md-3">
+			<a href="universities/<%= uni.id%>">
+				
+		      <%= image_tag uni.uni_image.url(:uni_index),class: "university"%>
+			</a>
+		</div>
+		<% end %>
+    </div>
+<% end %>
