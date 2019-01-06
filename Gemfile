@@ -9,7 +9,7 @@ gem 'simple_form', '~> 4.1'
 gem 'devise', '~> 4.5'
 gem "paperclip", "~> 6.0.0"
 
-
+gem 'pg'
 gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 3.11'
 gem 'bootstrap-sass', '~> 3.4.0'
@@ -29,7 +29,7 @@ end
 group :development do
  gem 'web-console', '>= 3.3.0'
   gem 'sqlite3'
-  gem 'pg'
+  
 end
 
 group :test do
