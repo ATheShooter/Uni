@@ -28,6 +28,8 @@ end
 
 group :development do
  gem 'web-console', '>= 3.3.0'
+  gem 'sqlite3'
+  gem 'pg'
 end
 
 group :test do
